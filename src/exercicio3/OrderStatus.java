@@ -1,8 +1,8 @@
-package exercicio8;
+package exercicio3;
 
 public enum OrderStatus {
     PENDING_PAYMENT,
     PROCESSING,
-    SHIPPPED,
+    SHIPPED,
     DELIVERED;
 }

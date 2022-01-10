@@ -1,4 +1,4 @@
-package exercicio9;
+package exercicio1;
 
 public enum WorkerLevel {
     JUNIOR,

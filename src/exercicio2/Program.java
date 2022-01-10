@@ -1,32 +1,34 @@
 package exercicio2;
 
-import java.util.Locale;
-import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Program {
-    public static void main(String[] args) {
+    public static void main (String[] args) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-        Scanner sc = new Scanner(System.in).useLocale(Locale.US);
-        Employee employee = new Employee();
+        Comment c1 = new Comment("Have a nice trip");
+        Comment c2 = new Comment("Wow that's awesome!");
+        Post p1 = new Post(
+                sdf.parse("21/06/2018 13:05:44"),
+                "Traveling to New Zealand",
+                "I'm going to visit this wonderful country!",
+                12);
+        p1.addComment(c1);
+        p1.addComment(c2);
 
-        System.out.print("Name: ");
-        employee.name = sc.nextLine();
+        Comment c3 = new Comment("Good night");
+        Comment c4 = new Comment("May the Force be with you");
 
-        System.out.print("Gross salary: ");
-        employee.grossSalary = sc.nextDouble();
+        Post p2 = new Post(
+                sdf.parse("28/07/2018 23:14:19"),
+                "Good night guys",
+                "See you tomorrow",
+                5);
+        p2.addComment(c3);
+        p2.addComment(c4);
 
-        System.out.print("Tax: ");
-        employee.tax = sc.nextDouble();
-
-        System.out.println("Employee: " + employee.name + ", $ " + employee.netSalary());
-
-        System.out.print("Which percentage to increase salary? ");
-        double percentage = sc.nextInt();
-        employee.increaseSalary(percentage);
-
-        System.out.println();
-        System.out.println("Update data: " + employee);
-
-        sc.close();
+        System.out.println(p1);
+        System.out.println(p2);
     }
 }
